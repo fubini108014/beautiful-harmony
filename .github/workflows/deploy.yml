@@ -21,8 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm ci
+          node-version: 24
+      - run: npm install -g npm@latest  # 升級 npm 到最新版
+      - run: npm ci --verbose
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
